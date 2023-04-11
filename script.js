@@ -1,6 +1,6 @@
 var points = 0;
 let seconds = 60;
-var secondsremaining = document.getElementById("demo").innerHTML = seconds + "s";
+var secondsremaining = document.getElementById("demo").innerHTML = seconds;
 
 function startTimer() {
 
@@ -15,7 +15,7 @@ function startTimer() {
 
     seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("demo").innerHTML = secondsremaining; 
+    document.getElementById("demo").innerHTML = seconds; 
 
     if (distance <= 0) {
       clearInterval(x);
@@ -72,6 +72,8 @@ function startTimer() {
   
       // keep track of user's answers
       var numCorrect = 0;
+
+     
      
   
       // for each question...
@@ -88,6 +90,8 @@ function startTimer() {
           numCorrect++;
           points += 100;
           console.log(seconds);
+          console.log(points);
+          document.querySelector(".quizScore").textContent = "Score: " + points;
   
           // color the answers green
           answerContainers[questionNumber].style.color = 'lightgreen';
@@ -99,7 +103,8 @@ function startTimer() {
           seconds -=10;
          
           console.log(seconds);
-        }
+          
+        }window.localStorage.setItem('quizScore', points);
       });
   
       // show number of correct answers out of total
@@ -171,8 +176,11 @@ function startTimer() {
     showSlide(currentSlide);
   
     // Event listeners
-    submitButton.addEventListener('click', showResults);
+    submitButton.addEventListener('click', showResults)
+      
+      ;
     nextButton.addEventListener("click", nextQuestion);
   })();
   
 console.log()
+
