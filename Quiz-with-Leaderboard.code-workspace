@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../Downloads/unit-02-challenge-main"
+		}
+	],
+	"settings": {
+		"git.ignoreLimitWarning": true,
+		"liveServer.settings.multiRootWorkspaceName": "Quiz-with-Leaderboard"
+	}
+}
