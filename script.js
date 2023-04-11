@@ -1,6 +1,8 @@
 var points = 0;
 let seconds = 60;
 var secondsremaining = document.getElementById("demo").innerHTML = seconds;
+var saveButton = document.getElementById("saveButton");
+var userName = document.getElementById("userName");
 
 function startTimer() {
 
@@ -104,7 +106,7 @@ function startTimer() {
          
           console.log(seconds);
           
-        }window.localStorage.setItem('quizScore', points);
+        }
       });
   
       // show number of correct answers out of total
@@ -184,3 +186,11 @@ function startTimer() {
   
 console.log()
 
+saveButton.addEventListener('click', saveResults);
+
+function saveResults(){
+  window.localStorage.setItem('quizScore', points);
+  window.localStorage.setItem('userName', userName);
+}
+
+console.log(window.localStorage.getItem('quizScore'));
