@@ -1,5 +1,6 @@
 var points = 0;
-var seconds = 0;
+let seconds = 60;
+var secondsremaining = document.getElementById("demo").innerHTML = seconds + "s";
 
 function startTimer() {
 
@@ -12,9 +13,9 @@ function startTimer() {
     var now = new Date().getTime();
     var distance = countDownDate - now;
 
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    document.getElementById("demo").innerHTML = seconds + "s"; 
+    document.getElementById("demo").innerHTML = secondsremaining; 
 
     if (distance <= 0) {
       clearInterval(x);
@@ -56,6 +57,7 @@ function startTimer() {
               <div class="answers"> ${answers.join("")} </div>
             </div>`
           );
+          console.log(seconds);
         }
       );
   
@@ -85,6 +87,7 @@ function startTimer() {
           // add to the number of correct answers
           numCorrect++;
           points += 100;
+          console.log(seconds);
   
           // color the answers green
           answerContainers[questionNumber].style.color = 'lightgreen';
@@ -94,6 +97,8 @@ function startTimer() {
           // color the answers red
           answerContainers[questionNumber].style.color = 'red';
           seconds -=10;
+         
+          console.log(seconds);
         }
       });
   
